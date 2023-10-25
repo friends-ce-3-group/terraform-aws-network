@@ -4,13 +4,13 @@ resource "aws_internet_gateway" "internet_gw" {
 
 # each private subnet to have a nat gateway attached
 resource "aws_nat_gateway" "pvt_subnet_nats" {
-  count = length(aws_subnet.subnets_private)
+  for_each = aws_subnet.subnets_private
 
-  subnet_id = element(aws_subnet.subnets_private.*.id, count.index)
+  subnet_id = each.value.id
 
-  allocation_id = element(aws_eip.eip_for_nat.*.id, count.index)
+  allocation_id = aws_eip.eip_for_nat[each.key].id
 
-  depends_on = [ aws_internet_gateway.internet_gw ]
+  depends_on = [aws_internet_gateway.internet_gw]
 }
 
 # every NAT needs an EIP

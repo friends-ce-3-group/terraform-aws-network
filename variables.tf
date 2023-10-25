@@ -28,15 +28,16 @@ variable "vpc_tags" {
 # ---------------------------------------------
 
 variable "map_public_ip_on_launch" {
-  type = bool
+  type        = bool
   description = "Use this for public subnets. Set to true to assign public IPs to the instances in the subnet."
+  default     = false
 }
 
 variable "public_subnets" {
   # Syntax is object({ variable_name=type, ... }). e.g. object({ name=string, age=number })
   # See https://developer.hashicorp.com/terraform/language/expressions/type-constraints#object
   type = map(object({
-    cidr_block = string
+    cidr_block        = string
     availability_zone = string
   }))
 }
@@ -51,7 +52,7 @@ variable "private_subnets" {
   # Syntax is object({ variable_name=type, ... }). e.g. object({ name=string, age=number })
   # See https://developer.hashicorp.com/terraform/language/expressions/type-constraints#object
   type = map(object({
-    cidr_block = string
+    cidr_block        = string
     availability_zone = string
   }))
 }

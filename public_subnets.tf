@@ -27,7 +27,7 @@ resource "aws_route_table" "rt_public" {
 }
 
 # Associate each subnet to a route table
-resource "aws_route_table_association" "subnets_public" {
+resource "aws_route_table_association" "rt_assoc_public" {
     count = length(aws_subnet.subnets_public)
 
     subnet_id = element(aws_subnet.subnets_public.*.id, count.index)

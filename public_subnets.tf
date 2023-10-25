@@ -11,7 +11,12 @@ resource "aws_subnet" "subnets_public" {
 
     map_public_ip_on_launch = var.map_public_ip_on_launch
 
-    tags = var.tags_public_subnet
+    tags = merge(
+        {
+            Name = each.key
+        },
+        var.tags_public_subnet
+    )
 }
 
 # Each subnet has its own route table

@@ -14,8 +14,8 @@ output "route_tables_private" {
     value = aws_route_table.rt_private
 }
 
-output "route_tables_private" {
-    value = aws_route_table.rt_private
+output "route_tables_public" {
+    value = aws_route_table.rt_public
 }
 
 output "internet_gateway" {

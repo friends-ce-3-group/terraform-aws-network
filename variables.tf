@@ -40,6 +40,8 @@ variable "public_subnets" {
     cidr_block        = string
     availability_zone = string
   }))
+
+  default = {}
 }
 
 variable "tags_public_subnet" {
@@ -55,6 +57,8 @@ variable "private_subnets" {
     cidr_block        = string
     availability_zone = string
   }))
+
+  default = {}
 }
 
 variable "tags_private_subnet" {

@@ -13,3 +13,29 @@ resource "aws_subnet" "subnets_public" {
 
     tags = var.tags_public_subnet
 }
+
+# Each subnet has its own route table
+resource "aws_route_table" "rt_public" {
+  vpc_id = aws_vpc.vpc.id
+
+  for_each = aws_subnet.subnets_public
+}
+
+# Associate each subnet to a route table
+resource "aws_route_table_association" "subnets_public" {
+    count = length(aws_subnet.subnets_public)
+
+    subnet_id = element(aws_subnet.subnets_public.*.id, count.index)
+    route_table_id = element(aws_route_table.rt_public.*.id, count.index)
+}
+
+# add a route for 0.0.0.0/0 to igw from the route table
+resource "aws_route" "route_to_igw" {
+    for_each = aws_route_table.rt_public
+
+    route_table_id = each.value.id
+
+    destination_cidr_block = "0.0.0.0/0" # all comms to IPs outside of VPC cidr range goes to the IGW
+
+    gateway_id = aws_internet_gateway.internet_gw.id
+}

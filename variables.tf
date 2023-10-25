@@ -19,7 +19,7 @@ variable "enable_dns_support" {
 }
 
 variable "vpc_tags" {
-  type        = map(string) # See 
+  type        = map(string)
   description = "Add tags to the vpc"
   default     = {}
 }
@@ -43,7 +43,7 @@ variable "public_subnets" {
 }
 
 variable "tags_public_subnet" {
-  type        = map(string) # See 
+  type        = map(string)
   description = "Add tags to public subnets"
   default     = {}
 }
@@ -58,7 +58,7 @@ variable "private_subnets" {
 }
 
 variable "tags_private_subnet" {
-  type        = map(string) # See 
+  type        = map(string)
   description = "Add tags to private subnets"
   default     = {}
 }

@@ -41,7 +41,7 @@ module "test_network" {
   }
 
   tags_public_subnet = {
-    "Name" = "public subnets"
+    Name = "public subnets"
   }
 
   private_subnets = {
@@ -56,6 +56,6 @@ module "test_network" {
   }
 
   tags_private_subnet = {
-    "Name" = "private subnets"
+    Name = "private subnets"
   }
 }

@@ -1,3 +1,6 @@
+# VPC settings
+# ---------------------------------------------
+
 variable "vpc_cidr" {
   type        = string
   description = "VPC cidr range"
@@ -21,3 +24,25 @@ variable "vpc_tags" {
   default     = {}
 }
 
+# Subnet settings
+# ---------------------------------------------
+
+variable "map_public_ip_on_launch" {
+  type = bool
+  description = "Use this for public subnets. Set to true to assign public IPs to the instances in the subnet."
+}
+
+variable "public_subnets" {
+  # Syntax is object({ variable_name=type, ... }). e.g. object({ name=string, age=number })
+  # See https://developer.hashicorp.com/terraform/language/expressions/type-constraints#object
+  type = map(object({
+    cidr_block = string
+    availability_zone = string
+  }))
+}
+
+variable "tags_public_subnet" {
+  type        = map(string) # See 
+  description = "Add tags to the public subnet"
+  default     = {}
+}

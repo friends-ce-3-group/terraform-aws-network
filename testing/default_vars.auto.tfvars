@@ -33,15 +33,15 @@ subnets_private = {
 }
 
 tags_public_subnet = {
-    Name = "${var.proj_name}-public-SN",
+    Name = "friends-capstone-vpc-public-SN",
     subnet = "public"
   }
 
 tags_private_subnet = {
-    Name = "${var.proj_name}-pvt-SN",
+    Name = "friends-capstone-vpc-pvt-SN",
     subnet = "private"
   }
 
 vpc_tags = {
-    Name = "${var.proj_name}"
+    Name = "friends-capstone-vpc"
 }

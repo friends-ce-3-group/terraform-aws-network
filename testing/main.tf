@@ -8,23 +8,17 @@ module "vpc_network" {
 
   enable_dns_support = var.enable_dns_support
 
-  vpc_tags = {
-    Name = "${var.proj_name}"
-  }
+  vpc_tags = var.vpc_tags
 
   map_public_ip_on_launch = var.map_public_ip_on_launch
 
   public_subnets = var.subnets_public
 
-  tags_public_subnet = {
-    Name = "${var.proj_name}-public-SN"
-  }
+  tags_public_subnet = var.tags_public_subnet
 
   private_subnets = var.subnets_private
 
-  tags_private_subnet = {
-    Name = "${var.proj_name}-pvt-SN"
-  }
+  tags_private_subnet = var.tags_private_subnet
 }
 
 

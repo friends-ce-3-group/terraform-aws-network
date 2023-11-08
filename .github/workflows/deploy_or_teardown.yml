@@ -21,7 +21,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./ecr_repos/pydbcapstone
+        working-directory: ./testing
         
     steps:
       - uses: actions/checkout@v4

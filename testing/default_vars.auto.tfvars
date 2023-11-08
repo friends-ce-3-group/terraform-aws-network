@@ -38,7 +38,7 @@ tags_public_subnet = {
   }
 
 tags_private_subnet = {
-    Name = "${var.proj_name}-pvt-SN"
+    Name = "${var.proj_name}-pvt-SN",
     subnet = "private"
   }
 

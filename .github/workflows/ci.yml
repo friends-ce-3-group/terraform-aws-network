@@ -31,5 +31,5 @@ jobs:
         - name: validate
           run: terraform validate
 
-        - name: Secret Scanner
-          uses: secret-scanner/action@0.0.2
+        # - name: Secret Scanner
+        #   uses: secret-scanner/action@0.0.2

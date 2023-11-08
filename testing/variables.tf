@@ -35,3 +35,15 @@ variable "subnets_private" {
     availability_zone = string
   }))
 }
+
+variable "tags_public_subnet" {
+    type = map(string)
+}
+
+variable "tags_private_subnet" {
+    type = map(string)
+}
+
+variable "vpc_tags" {
+    type = map(string)
+}

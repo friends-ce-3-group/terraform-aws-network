@@ -9,7 +9,7 @@ module "vpc_network" {
   enable_dns_support = var.enable_dns_support
 
   vpc_tags = {
-    Name = "${var.proj_name}-vpc"
+    Name = "${var.proj_name}"
   }
 
   map_public_ip_on_launch = var.map_public_ip_on_launch
